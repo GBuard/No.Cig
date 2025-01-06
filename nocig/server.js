@@ -72,6 +72,11 @@ async function connectDB() {
 
 connectDB(); // Appeler la fonction pour tester la connexion
 
+Pourquoi les deux codes sont-ils importants ?
+Le premier code est la base de ton serveur backend, capable de répondre aux requêtes HTTP. Il est essentiel pour que ton application fonctionne en tant que serveur.
+Le deuxième code complète le premier en ajoutant la possibilité de communiquer avec MongoDB, afin de stocker et gérer les données nécessaires à ton application (par exemple, les statistiques de l'utilisateur).
+
+
 */
 
 
