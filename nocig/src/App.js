@@ -1,13 +1,13 @@
 import Header from "./components/Header";
-import Chrono from "./components/Chrono";
+import Dashboard from "./components/Dashboard";
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Chrono />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Dashboard />
+        </div>
+    );
 }
 
 export default App;

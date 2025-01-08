@@ -1,36 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import Chrono from './Chrono';
+import React, { useEffect, useState } from "react";
+import Chrono from "./Chrono";
+import MoneySaved from "./MoneySaved";
 
 const Dashboard = () => {
-  const [userStats, setUserStats] = useState(null);
+    const [userStats, setUserStats] = useState(null);
+    const [days, setDays] = useState(0); // État pour le nombre de jours
 
-  useEffect(() => {
-    const userId = 'uniqueUserId123';
+    useEffect(() => {
+        // Remplace l'ID utilisateur par celui de ton backend
+        const userId = "uniqueUserId123";
 
-    fetch(`http://localhost:5000/api/stats/${userId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('API response:', data); // Vérifie ici si `startDate` est présent
-        setUserStats(data);
-      })
-      .catch((error) => console.error('Error fetching user stats:', error));
-  }, []);
+        fetch(`http://localhost:5000/api/stats/${userId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setUserStats(data);
+            })
+            .catch((error) =>
+                console.error("Error fetching user stats:", error)
+            );
+    }, []);
 
-  if (!userStats) {
-    return <div>Loading...</div>;
-  }
+    if (!userStats) {
+        return <div>Loading...</div>;
+    }
 
-  if (!userStats.startDate) {
-    console.error('startDate is missing in userStats:', userStats);
-    return <div>Start date is missing.</div>;
-  }
+    return (
+        <div>
+            {/* Chrono calcule les jours et les transmet via setDays */}
+            <Chrono
+                startDate={userStats.startDate}
+                onDaysCalculated={setDays}
+            />
 
-  return (
-    <div>
-      {/* Passe la vraie valeur de startDate */}
-      <Chrono startDate={userStats.startDate} />
-    </div>
-  );
+            {/* MoneySaved utilise les jours calculés */}
+            <MoneySaved days={days} />
+        </div>
+    );
 };
 
 export default Dashboard;
