@@ -1,5 +1,0 @@
-Fonctionnement : 
-
-Dashboard récupère startDate depuis l'API.
-Chrono calcule le nombre de jours écoulés depuis cette date et transmet cette information à Dashboard via la fonction onDaysCalculated.
-Dashboard transmet ensuite le nombre de jours à MoneySaved, qui calcule et affiche l'argent économisé.

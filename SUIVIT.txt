@@ -1,0 +1,26 @@
+Fonctionnement :
+16/01/2025
+
+Après ajout de CigarettesNotSmoked :
+Le composant CigarettesNotSmoked va s'insérer au même niveau que MoneySaved. Il recevra days depuis Dashboard, et utilisera la constante cigarettesPerDay pour calculer et afficher le nombre de cigarettes non fumées.
+
+Voici comment les composants interagiront :
+
+Dashboard :
+
+Continue de récupérer les données utilisateur.
+Passe startDate à Chrono.
+Reçoit les jours d'arrêt via onDaysCalculated.
+Passe days à MoneySaved et CigarettesNotSmoked.
+Chrono :
+
+Ne change pas. Il calcule les jours et transmet ces jours à Dashboard.
+MoneySaved :
+
+Ne change pas. Il reçoit days depuis Dashboard, utilise cigarettesPerDay, et affiche l'argent économisé.
+CigarettesNotSmoked (nouveau) :
+
+Reçoit days depuis Dashboard.
+Utilise la même constante cigarettesPerDay pour calculer :
+cigarettesNotSmoked = days \* cigarettesPerDay.
+Affiche le nombre total de cigarettes non fumées.

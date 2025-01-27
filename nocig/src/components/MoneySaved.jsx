@@ -3,7 +3,7 @@ import React from "react";
 const MoneySaved = ({ days }) => {
     const pricePerPack = 12.5; // Prix d'un paquet en €
     const cigarettesPerPack = 20; // Nombre de cigarettes par paquet
-    const cigarettesPerDay = 10; // Nombre de cigarettes fumées par jour (1/2 paquet)
+    const cigarettesPerDay = 10; // Nombre de cigarettes fumées par jour (1/4 paquet)
 
     // Calcul de l'argent économisé
     const moneySaved =
