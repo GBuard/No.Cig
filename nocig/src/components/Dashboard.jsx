@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Chrono from "./Chrono";
 import MoneySaved from "./MoneySaved";
 import CigarettesNotSmoked from "./CigarettesNotSmoked";
+import LifeGained from "./LifeGained";
 
 const Dashboard = () => {
     const [userStats, setUserStats] = useState(null);
-    const [days, setDays] = useState(0); // État pour les jours
+    const [days, setDays] = useState(0); // État pour les jours d'arrêt
+    const cigarettesPerDay = 5; // Nombre moyen de cigarettes fumées par jour
 
     useEffect(() => {
         const userId = "uniqueUserId123";
@@ -31,7 +33,11 @@ const Dashboard = () => {
                 onDaysCalculated={setDays}
             />
             <MoneySaved days={days} />
-            <CigarettesNotSmoked days={days} />
+            <CigarettesNotSmoked
+                days={days}
+                cigarettesPerDay={cigarettesPerDay}
+            />
+            <LifeGained days={days} cigarettesPerDay={cigarettesPerDay} />
         </div>
     );
 };
